@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Controle de Finanças</title>
+    <meta name="author" content="Leonam Cruz">
+    <meta name="description" content="Site para controlar as finanças online">
+    <meta name="keywords" content="finanças, controle">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-$END$
+<section>
+    <h1>
+        Controle de Finanças
+    </h1>
+    <form action="/inserir" method="post">
+        <label for="dinheiro">
+            <input class = "dinheiro" id="dinheiro" required type="number" placeholder="Gasto R$"><br>
+        </label>
+        <label for="data">
+            <input class = "data" id="data" required type="datetime-local" placeholder="Dia do Gasto"><br>
+        </label>
+        <label for="cadastrar">
+            <button class="cadastrar" id="cadastrar">Cadastrar Gasto</button>
+        </label>
+    </form>
+</section>
+<footer>
+    Desenvolvido por Leonam
+</footer>
 </body>
 </html>
