@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -16,23 +17,31 @@ public class Gasto implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID uuid;
     @Column
-    private double gasto;
+    private BigDecimal gasto;
     @Column
-    private Date date;
+    private LocalDate date;
 
-    public void setDate(Date date) {
-        this.date = date;
+    public UUID getUuid() {
+        return uuid;
     }
 
-    public Date getDate() {
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+    public BigDecimal getGasto() {
+        return gasto;
+    }
+
+    public void setGasto(BigDecimal gasto) {
+        this.gasto = gasto;
+    }
+
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setId(UUID id) {
-        this.uuid = id;
-    }
-
-    public UUID getId() {
-        return uuid;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }
