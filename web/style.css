@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    gap: 20px;
 }
 body{
     background: #000000;
@@ -50,4 +51,8 @@ form input{
     transition : 327ms;
     transform: translateY(0);
 }
+footer{
+    color: white;
+}
+
 

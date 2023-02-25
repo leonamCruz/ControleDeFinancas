@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form'); // seleciona o elemento <form> no DOM
+    const totalLabel = document.querySelector('#total');
 
     form.addEventListener('submit', function (event) {
         event.preventDefault(); // previne o envio do formulário padrão
@@ -26,6 +27,25 @@ document.addEventListener('DOMContentLoaded', function() {
             body: JSON.stringify(dados)
         }).then(function (res) {
             console.log(res.status);
+        });
+    });
+
+    const somarButton = document.querySelector('#somarTudo');
+    somarButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        fetch('http://localhost:8080/inserir/sumAll', {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json',
+            }
+        }).then(function (res) {
+            return res.json();
+        }).then(function (data) {
+            console.log(data)
+            totalLabel.textContent = data
+        }).catch(function(error) {
+            console.error(error);
         });
     });
 });
