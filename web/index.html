@@ -12,15 +12,16 @@
 </head>
 <body>
 <section>
-    <h1>
-        Controle de Finanças
-    </h1>
+    <h1>Adicionar Gastos</h1>
     <form>
+        <label for="descricao">
+            <input class="descricao" id="descricao" placeholder="Descrição do gasto" required type="text">
+        </label>
         <label for="dinheiro">
-            <input class = "dinheiro" id="dinheiro" required type="text" placeholder="Gasto R$"><br>
+            <input class="dinheiro" id="dinheiro" required type="text" placeholder="Gasto R$"><br>
         </label>
         <label for="data">
-            <input class = "data" id="data" required type="datetime-local" placeholder="Dia do Gasto"><br>
+            <input class="data" id="data" required type="datetime-local" placeholder="Dia do Gasto"><br>
         </label>
         <label for="cadastrar">
             <button class="cadastrar" id="cadastrar">Cadastrar Gasto</button>
@@ -28,13 +29,17 @@
     </form>
 </section>
 <section>
-    <h1>
-        Somatório
-    </h1>
+    <h1>Somatório</h1>
     <label id="total"></label>
     <form>
-        <button id = "somarTudo" class="cadastrar">Somar Tudo</button>
+        <button id="somarTudo" class="cadastrar">Somar Tudo</button>
     </form>
+</section>
+<section>
+    <h1>Download .CSV</h1>
+    <a href="http://localhost:8080/home/getDocument">
+        <button id="download" class="cadastrar">Download</button>
+    </a>
 </section>
 <footer>
     Desenvolvido por Leonam

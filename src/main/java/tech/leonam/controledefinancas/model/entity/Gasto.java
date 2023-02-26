@@ -20,6 +20,16 @@ public class Gasto implements Serializable {
     private BigDecimal gasto;
     @Column
     private LocalDate date;
+    @Column
+    private String descricao;
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
     public UUID getUuid() {
         return uuid;

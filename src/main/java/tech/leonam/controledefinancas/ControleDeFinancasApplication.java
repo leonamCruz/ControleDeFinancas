@@ -8,5 +8,4 @@ public class ControleDeFinancasApplication {
     public static void main(String[] args) {
         SpringApplication.run(ControleDeFinancasApplication.class, args);
     }
-
 }

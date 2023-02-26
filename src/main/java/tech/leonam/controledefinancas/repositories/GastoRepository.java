@@ -12,5 +12,6 @@ import java.util.UUID;
 public interface GastoRepository extends JpaRepository<Gasto, UUID> {
     @Query("SELECT SUM(f.gasto) FROM Gasto f")
     BigDecimal sumGastos();
+
 }
 

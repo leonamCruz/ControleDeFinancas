@@ -28,4 +28,8 @@ public class GastoService {
     public BigDecimal sum() {
         return gastoRepository.sumGastos();
     }
+
+    public GastoRepository getGastoRepository() {
+        return gastoRepository;
+    }
 }
