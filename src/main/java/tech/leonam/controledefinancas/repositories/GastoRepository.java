@@ -14,5 +14,7 @@ public interface GastoRepository extends JpaRepository<Gasto, UUID> {
     BigDecimal sumGastos();
     @Query("SELECT opc, COUNT(*) AS contagem FROM Gasto GROUP BY opc ORDER BY contagem DESC LIMIT 1")
     Object getBigExpense();
+    @Query("SELECT opc, COUNT(*) AS contagem FROM Gasto GROUP BY opc ORDER BY contagem ASC LIMIT 1")
+    Object getSmallExpense();
 }
 

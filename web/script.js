@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const somarButton = document.querySelector('#somarTudo')
     const msiorGastoButton = document.querySelector('#comOQueMaisGasto')
     const labelGastoMaior = document.querySelector('#comOQueMaisGasta')
+    const labelGastoMenor = document.querySelector('#comOQueMenosGasta')
+    const menorGastoButton = document.querySelector('#comOQueMenosGasto')
+
     document.querySelector('#download');
     form.addEventListener('submit', function (event) {
         event.preventDefault()
@@ -70,6 +73,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }).then(function (data){
             console.log(data)
             labelGastoMaior.textContent = data
+        })
+    })
+    menorGastoButton.addEventListener('click',function (event){
+        event.preventDefault()
+
+        fetch('http://localhost:8080/home/getSmallExpense',{
+            method:'GET',
+            headers:{
+                'Content-type':'application/json',
+            }
+        }).then(function (res){
+            return res.json()
+        }).then(function (data){
+            console.log(data)
+            labelGastoMenor.textContent = data
         })
     })
 })

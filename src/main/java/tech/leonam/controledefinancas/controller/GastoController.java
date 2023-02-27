@@ -74,6 +74,10 @@ public class GastoController {
     public ResponseEntity<Object> getBigExpense(){
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBigExpense());
     }
+    @GetMapping("/getSmallExpense")
+    public ResponseEntity<Object>getSmallExpense(){
+        return ResponseEntity.status(HttpStatus.OK).body(gastoService.getSmallExpense());
+    }
 
     private record CreateCsv(List<Gasto> list) {
         public void createCsvByList() throws IOException {

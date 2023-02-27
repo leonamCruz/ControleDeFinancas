@@ -36,4 +36,8 @@ public class GastoService {
     public Object getBigExpense() {
         return gastoRepository.getBigExpense();
     }
+
+    public Object getSmallExpense() {
+        return gastoRepository.getSmallExpense();
+    }
 }
