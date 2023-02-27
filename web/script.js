@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }).then(function (res) {
             console.log(res.status);
         }).catch(function (){
-            alert('Liga o servidor filho da puta');
+            alert('Talvez o Servidor esteja desligado');
         })
     })
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(data)
             totalLabel.textContent = data
         }).catch(function(error) {
-            alert('Liga o servidor filho da puta');
+            alert('Talvez o Servidor esteja desligado');
             console.error(error);
         })
     })
