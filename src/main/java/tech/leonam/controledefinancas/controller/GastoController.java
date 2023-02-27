@@ -78,7 +78,10 @@ public class GastoController {
     public ResponseEntity<Object>getSmallExpense(){
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.getSmallExpense());
     }
-
+    @GetMapping("/getBiggestExpense")
+    public ResponseEntity<Object>getBiggestExpense(){
+        return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBiggestExpense());
+    }
     private record CreateCsv(List<Gasto> list) {
         public void createCsvByList() throws IOException {
             var cabecalho = new String[]{"Descricao", "R$", "Data", "Gasto com o que"};

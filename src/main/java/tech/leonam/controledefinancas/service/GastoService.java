@@ -40,4 +40,8 @@ public class GastoService {
     public Object getSmallExpense() {
         return gastoRepository.getSmallExpense();
     }
+
+    public Object getBiggestExpense() {
+        return gastoRepository.getBiggestExpense();
+    }
 }

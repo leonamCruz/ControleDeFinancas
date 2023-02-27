@@ -16,5 +16,7 @@ public interface GastoRepository extends JpaRepository<Gasto, UUID> {
     Object getBigExpense();
     @Query("SELECT opc, COUNT(*) AS contagem FROM Gasto GROUP BY opc ORDER BY contagem ASC LIMIT 1")
     Object getSmallExpense();
+    @Query("SELECT g.descricao,g.date,g.opc,g.gasto FROM Gasto g WHERE g.gasto = (SELECT MAX(g2.gasto) FROM Gasto g2)")
+    Object getBiggestExpense();
 }
 

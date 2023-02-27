@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const labelGastoMaior = document.querySelector('#comOQueMaisGasta')
     const labelGastoMenor = document.querySelector('#comOQueMenosGasta')
     const menorGastoButton = document.querySelector('#comOQueMenosGasto')
+    const botaoGastoAlto = document.querySelector('#gastoMaisAlto')
+    const labelGastoAlto = document.querySelector('#gastoMaisAltoLabel')
 
     document.querySelector('#download');
     form.addEventListener('submit', function (event) {
@@ -20,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const date = dataInput.value
         const descricao = descricaoInput.value
         const opc = gastoComOQueInput.value;
-
 
         const dados = {
             gasto,
@@ -88,6 +89,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }).then(function (data){
             console.log(data)
             labelGastoMenor.textContent = data
+        })
+    })
+    botaoGastoAlto.addEventListener('click',function (event){
+        event.preventDefault()
+
+        fetch('http://localhost:8080/home/getBiggestExpense',{
+            method:'GET',
+            headers:{
+                'Content-type':'application/json',
+            }
+        }).then(function (res){
+            return res.json()
+        }).then(function (data){
+            console.log(data)
+            labelGastoAlto.textContent = data
         })
     })
 })
