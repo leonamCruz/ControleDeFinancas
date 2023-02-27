@@ -12,6 +12,7 @@ import java.util.UUID;
 public interface GastoRepository extends JpaRepository<Gasto, UUID> {
     @Query("SELECT SUM(f.gasto) FROM Gasto f")
     BigDecimal sumGastos();
-
+    @Query("SELECT opc, COUNT(*) AS contagem FROM Gasto GROUP BY opc ORDER BY contagem DESC LIMIT 1")
+    Object getBigExpense();
 }
 

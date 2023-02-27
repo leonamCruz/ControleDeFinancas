@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 import tech.leonam.controledefinancas.model.entity.Gasto;
 import tech.leonam.controledefinancas.service.GastoService;
 
@@ -37,13 +36,19 @@ public class GastoController {
     public ResponseEntity<Object> getAll() {
         return ResponseEntity.status(HttpStatus.CREATED).body(gastoService.get());
     }
+
     @GetMapping("/sumAll")
-    public ResponseEntity<Object> getSum(){
+    public ResponseEntity<Object> getSum() {
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.sum());
     }
+
     @GetMapping("/getDocument")
-    public ResponseEntity<?> getDocument(){
-        new RedirectView("www.google.com");
+    public ResponseEntity<?> getDocument() {
+        try {
+            var existeOArquivo = Files.deleteIfExists(Paths.get("gasto.csv"));
+        } catch (Exception ignored) {
+        }
+
         var json = ResponseEntity.status(HttpStatus.OK).body(gastoService.getGastoRepository().findAll());
         var list = json.getBody();
         var createCsv = new CreateCsv(list);
@@ -65,24 +70,28 @@ public class GastoController {
         }
     }
 
+    @GetMapping("/getBigExpense")
+    public ResponseEntity<Object> getBigExpense(){
+        return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBigExpense());
+    }
+
     private record CreateCsv(List<Gasto> list) {
         public void createCsvByList() throws IOException {
-                var cabecalho = new String[]{"descricao", "gasto", "data"};
-                List<String[]> listaStringTemporaria = new ArrayList<>();
+            var cabecalho = new String[]{"Descricao", "R$", "Data", "Gasto com o que"};
+            List<String[]> listaStringTemporaria = new ArrayList<>();
 
             for (var gasto : list) {
                 listaStringTemporaria.add(new String[]{gasto.getDescricao(),
-                        gasto.getGasto().toString(),gasto.getDate().toString()});
+                        gasto.getGasto().toString(), gasto.getDate().toString(), gasto.getOpc()});
             }
-                var writer = Files.newBufferedWriter(Paths.get("gasto.csv"));
-                var csvWriter = new CSVWriter(writer);
+            var writer = Files.newBufferedWriter(Paths.get("gasto.csv"));
+            var csvWriter = new CSVWriter(writer);
 
-                csvWriter.writeNext(cabecalho);
-                csvWriter.writeAll(listaStringTemporaria);
+            csvWriter.writeNext(cabecalho);
+            csvWriter.writeAll(listaStringTemporaria);
 
-                csvWriter.flush();
-                csvWriter.close();
-
-            }
+            csvWriter.flush();
+            csvWriter.close();
         }
+    }
 }

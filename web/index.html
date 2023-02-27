@@ -14,6 +14,19 @@
 <section>
     <h1>Adicionar Gastos</h1>
     <form>
+        <label id="opcao">
+            <select class="opc" id = "opc">
+                <option value="nenhum">Seleciona uma opção</option>
+                <option value="comida">Comida</option>
+                <option value="saude">Saúde</option>
+                <option value="moradia">Moradia</option>
+                <option value="comunicacao">Comunicação</option>
+                <option value="estudos">Estudos</option>
+                <option value="roupas">Roupas</option>
+                <option value="lazer">Lazer</option>
+                <option value="nenhum">Outros</option>
+            </select>
+        </label>
         <label for="descricao">
             <input class="descricao" id="descricao" placeholder="Descrição do gasto" required type="text">
         </label>
@@ -21,7 +34,7 @@
             <input class="dinheiro" id="dinheiro" required type="text" placeholder="Gasto R$"><br>
         </label>
         <label for="data">
-            <input class="data" id="data" required type="datetime-local" placeholder="Dia do Gasto"><br>
+            <input class="data" id="data" required type="date" placeholder="Dia do Gasto"><br>
         </label>
         <label for="cadastrar">
             <button class="cadastrar" id="cadastrar">Cadastrar Gasto</button>
@@ -40,6 +53,13 @@
     <a href="http://localhost:8080/home/getDocument">
         <button id="download" class="cadastrar">Download</button>
     </a>
+</section>
+<section>
+    <h1>Com o que você mais gasta?</h1>
+    <label id="comOQueMaisGasta"></label>
+    <form>
+        <button id="comOQueMaisGasto" class="cadastrar">Qual será?</button>
+    </form>
 </section>
 <footer>
     Desenvolvido por Leonam

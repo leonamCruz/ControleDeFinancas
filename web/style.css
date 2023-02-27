@@ -34,6 +34,12 @@ section{
 h1{
     font-size: 30px;
 }
+form select{
+    width: 240px;
+    align-self: center;
+    margin: 2px;
+    height: 35px;
+}
 form input{
     width: 240px;
     align-self: center;

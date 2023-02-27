@@ -22,6 +22,16 @@ public class Gasto implements Serializable {
     private LocalDate date;
     @Column
     private String descricao;
+    @Column
+    private String opc;
+
+    public String getOpc() {
+        return opc;
+    }
+
+    public void setOpc(String opc) {
+        this.opc = opc;
+    }
 
     public String getDescricao() {
         return descricao;
@@ -54,4 +64,5 @@ public class Gasto implements Serializable {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
 }
