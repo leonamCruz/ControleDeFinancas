@@ -1,8 +1,6 @@
 # ControleDeFinancas
 Controle de Finanças com SpringBoot
 
-END POINT'S
-
 # Configuração:
 No banco de dados MySql você deve criar um banco de dados chamado "bd_financa"
 
@@ -13,6 +11,8 @@ spring.datasource.url=jdbc:mysql://localhost:3306/bd_financa // Aqui você alter
 spring.datasource.username=root // Seu usuário
 spring.datasource.password=senha123 // Sua Senha
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver // É o JDBC, serve para fazer a ponte entre o Java e o banco de dados
+
+# END POINT'S
 
 # POST:
 /home
