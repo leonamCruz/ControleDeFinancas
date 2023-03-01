@@ -16,6 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -83,6 +84,16 @@ public class GastoController {
     @GetMapping("/getBiggerDaySpent")
     public ResponseEntity<Object>getBiggerDaySpent(){
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBiggerDaySpent());
+    }
+    @DeleteMapping("/{uuid}")
+    public ResponseEntity<Object> delete(@PathVariable(value = "uuid")UUID uuid){
+        var gastoOptional = gastoService.getGastoRepository().findById(uuid);
+
+        if(gastoOptional.isPresent()){
+            gastoService.getGastoRepository().deleteById(uuid);
+            return ResponseEntity.status(HttpStatus.OK).body("Deletado");
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ID não localizado");
     }
     private record CreateCsv(List<Gasto> list) {
         public void createCsvByList() throws IOException {
