@@ -33,3 +33,7 @@ home/getSmallExpense
 Retorna um JSON com qual categoria é o menor gasto com quantas vezes aquela categoria se repete.
 EX:  ['comida', 1]
 
+home/getBiggestExpense
+Retorna um JSON com todas as informações do gasto mais alto.
+OBS: Não vem o UUID
+EX: ['Aluguel', '2023-02-27', 'moradia', 785.6]
