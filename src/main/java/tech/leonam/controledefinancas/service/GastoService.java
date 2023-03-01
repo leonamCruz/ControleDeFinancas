@@ -44,4 +44,8 @@ public class GastoService {
     public Object getBiggestExpense() {
         return gastoRepository.getBiggestExpense();
     }
+
+    public Object getBiggerDaySpent() {
+        return gastoRepository.getBiggerDaySpent();
+    }
 }

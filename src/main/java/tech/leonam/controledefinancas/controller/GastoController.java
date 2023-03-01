@@ -46,8 +46,7 @@ public class GastoController {
     public ResponseEntity<?> getDocument() {
         try {
             var existeOArquivo = Files.deleteIfExists(Paths.get("gasto.csv"));
-        } catch (Exception ignored) {
-        }
+        } catch (Exception ignored) {}
 
         var json = ResponseEntity.status(HttpStatus.OK).body(gastoService.getGastoRepository().findAll());
         var list = json.getBody();
@@ -69,7 +68,6 @@ public class GastoController {
             return (ResponseEntity<?>) ResponseEntity.badRequest();
         }
     }
-
     @GetMapping("/getBigExpense")
     public ResponseEntity<Object> getBigExpense(){
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBigExpense());
@@ -81,6 +79,10 @@ public class GastoController {
     @GetMapping("/getBiggestExpense")
     public ResponseEntity<Object>getBiggestExpense(){
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBiggestExpense());
+    }
+    @GetMapping("/getBiggerDaySpent")
+    public ResponseEntity<Object>getBiggerDaySpent(){
+        return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBiggerDaySpent());
     }
     private record CreateCsv(List<Gasto> list) {
         public void createCsvByList() throws IOException {

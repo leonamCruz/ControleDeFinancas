@@ -18,5 +18,7 @@ public interface GastoRepository extends JpaRepository<Gasto, UUID> {
     Object getSmallExpense();
     @Query("SELECT g.descricao,g.date,g.opc,g.gasto FROM Gasto g WHERE g.gasto = (SELECT MAX(g2.gasto) FROM Gasto g2)")
     Object getBiggestExpense();
+    @Query("SELECT date, SUM(gasto) AS total_gastos FROM Gasto GROUP BY date ORDER BY total_gastos DESC LIMIT 1")
+    Object getBiggerDaySpent();
 }
 
