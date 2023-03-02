@@ -18,6 +18,7 @@ Exemplo:
 }
 <br>
 ]
+
 # GET:
 
 <h3>/home<br></h3>
