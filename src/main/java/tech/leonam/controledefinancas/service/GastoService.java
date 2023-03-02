@@ -48,4 +48,12 @@ public class GastoService {
     public Object getBiggerDaySpent() {
         return gastoRepository.getBiggerDaySpent();
     }
+
+    public Object getBySpecificMonthAndYear(String mesEAno) {
+        return gastoRepository.getBySpecificMonth(mesEAno);
+    }
+
+    public Object getPerMonth(boolean booleano) {
+        return gastoRepository.getPerMonth(booleano);
+    }
 }

@@ -95,6 +95,15 @@ public class GastoController {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ID não localizado");
     }
+
+    @GetMapping("/getPerMonth/{booleano}")
+    public ResponseEntity<Object> getPerMonth(@PathVariable(value = "booleano") boolean booleano){
+        return ResponseEntity.status(HttpStatus.OK).body(gastoService.getPerMonth(booleano));
+    }
+    @GetMapping("/getBySpecificMonth/{monthAndYear}")
+    public ResponseEntity<Object>getBySpecificMonth(@PathVariable(value = "monthAndYear")String mesEAno){
+        return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBySpecificMonthAndYear(mesEAno));
+    }
     private record CreateCsv(List<Gasto> list) {
         public void createCsvByList() throws IOException {
             var cabecalho = new String[]{"Descricao", "R$", "Data", "Gasto com o que"};
