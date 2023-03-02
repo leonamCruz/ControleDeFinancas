@@ -1,9 +1,14 @@
 # ControleDeFinancas
 Controle de Finanças com SpringBoot
 
-END POINT'S
-
-# POST:
+<h3>Sobre o projeto</h3>
+<p>
+A linguagem do projeto é Java em sua Versão 17 e o Framework SpringBoot na sua versão 3.0.3.
+</p>
+<p>
+</p>
+<h1> END POINT'S</h1>
+<h1>POST:</h1> 
 <h3> /home <br></h3>
 Você deve enviar uma JSON contendo gasto,date,descricao,opc. Nessa respectiva ordem, o UUID é gerado automaticamente. Retorna Estado 201 se der certo.
 Exemplo:
