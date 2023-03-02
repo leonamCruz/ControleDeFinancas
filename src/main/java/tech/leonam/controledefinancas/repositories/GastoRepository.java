@@ -27,7 +27,7 @@ public interface GastoRepository extends JpaRepository<Gasto, UUID> {
     @Query("SELECT g FROM Gasto g " +
             "ORDER BY CASE WHEN :booleano = true THEN g.date ELSE NULL END ASC, " +
             "CASE WHEN :booleano = false THEN g.date ELSE NULL END DESC")
-    List<Gasto> getPerMonth(boolean booleano);
+    List<Gasto> ascOrDesc(boolean booleano);
 
 }
 

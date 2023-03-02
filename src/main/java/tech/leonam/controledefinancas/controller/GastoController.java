@@ -23,26 +23,21 @@ import java.util.UUID;
 @RequestMapping("/home")
 public class GastoController {
     private final GastoService gastoService;
-
     public GastoController(GastoService gastoService) {
         this.gastoService = gastoService;
     }
-
     @PostMapping()
     public ResponseEntity<Object> post(@RequestBody Gasto gasto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(gastoService.save(gasto));
     }
-
     @GetMapping()
     public ResponseEntity<Object> getAll() {
         return ResponseEntity.status(HttpStatus.CREATED).body(gastoService.get());
     }
-
     @GetMapping("/sumAll")
     public ResponseEntity<Object> getSum() {
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.sum());
     }
-
     @GetMapping("/getDocument")
     public ResponseEntity<?> getDocument() {
         try {
@@ -70,38 +65,37 @@ public class GastoController {
         }
     }
     @GetMapping("/getBigExpense")
-    public ResponseEntity<Object> getBigExpense(){
+    public ResponseEntity<Object> getBigExpense() {
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBigExpense());
     }
     @GetMapping("/getSmallExpense")
-    public ResponseEntity<Object>getSmallExpense(){
+    public ResponseEntity<Object> getSmallExpense() {
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.getSmallExpense());
     }
     @GetMapping("/getBiggestExpense")
-    public ResponseEntity<Object>getBiggestExpense(){
+    public ResponseEntity<Object> getBiggestExpense() {
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBiggestExpense());
     }
     @GetMapping("/getBiggerDaySpent")
-    public ResponseEntity<Object>getBiggerDaySpent(){
+    public ResponseEntity<Object> getBiggerDaySpent() {
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBiggerDaySpent());
     }
     @DeleteMapping("/{uuid}")
-    public ResponseEntity<Object> delete(@PathVariable(value = "uuid")UUID uuid){
+    public ResponseEntity<Object> delete(@PathVariable(value = "uuid") UUID uuid) {
         var gastoOptional = gastoService.getGastoRepository().findById(uuid);
 
-        if(gastoOptional.isPresent()){
+        if (gastoOptional.isPresent()) {
             gastoService.getGastoRepository().deleteById(uuid);
             return ResponseEntity.status(HttpStatus.OK).body("Deletado");
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ID não localizado");
     }
-
-    @GetMapping("/getPerMonth/{booleano}")
-    public ResponseEntity<Object> getPerMonth(@PathVariable(value = "booleano") boolean booleano){
-        return ResponseEntity.status(HttpStatus.OK).body(gastoService.getPerMonth(booleano));
+    @GetMapping("/ascOrDesc/{booleano}")
+    public ResponseEntity<Object> getPerMonth(@PathVariable(value = "booleano") boolean booleano) {
+        return ResponseEntity.status(HttpStatus.OK).body(gastoService.ascOrDesc(booleano));
     }
     @GetMapping("/getBySpecificMonth/{monthAndYear}")
-    public ResponseEntity<Object>getBySpecificMonth(@PathVariable(value = "monthAndYear")String mesEAno){
+    public ResponseEntity<Object> getBySpecificMonth(@PathVariable(value = "monthAndYear") String mesEAno) {
         return ResponseEntity.status(HttpStatus.OK).body(gastoService.getBySpecificMonthAndYear(mesEAno));
     }
     private record CreateCsv(List<Gasto> list) {

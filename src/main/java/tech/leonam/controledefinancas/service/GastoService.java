@@ -53,7 +53,7 @@ public class GastoService {
         return gastoRepository.getBySpecificMonth(mesEAno);
     }
 
-    public Object getPerMonth(boolean booleano) {
-        return gastoRepository.getPerMonth(booleano);
+    public Object ascOrDesc(boolean booleano) {
+        return gastoRepository.ascOrDesc(booleano);
     }
 }

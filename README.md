@@ -3,7 +3,7 @@ Controle de Finanças com SpringBoot
 
 <h3>Sobre o projeto</h3>
 <p>
-A linguagem do projeto é Java em sua Versão 17 e o Framework SpringBoot na sua versão 3.0.3.
+A linguagem do projeto é Java na sua Versão 17 e o Framework SpringBoot na sua versão 3.0.3.
 </p>
 <p>
 </p>
@@ -66,7 +66,7 @@ OBS: não vem o UUID.<br>
 EX: <br>[<br>'Aluguel',<br> '2023-02-27',<br> 'moradia',<br> 785.6<br>]
 </p>
 
-<h3> /getPerMonth/{Coloque aqui true ou false sem as chaves} </h3>
+<h3> /ascOrDesc/{Coloque aqui true ou false sem as chaves} </h3>
 <p align="justify">
 Se você inserir true, ele retorna em ordem crescente.
 Se for false, ele retorna em ordem decrescente.<br>
